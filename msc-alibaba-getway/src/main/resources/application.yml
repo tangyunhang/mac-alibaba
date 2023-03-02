@@ -1,0 +1,24 @@
+server:
+  port: 9000
+spring:
+  application:
+    # 当前服务的名称：注册到注册
+    name: msc-alibaba-getway
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 121.43.114.196:8845
+    gateway:
+      discovery:
+        locator:
+          # 配置开启与DiscoveryClient整合
+          enabled: true
+      routes:
+        # 动态路由配置：路由id
+        - id: ribbon_route2
+        # 路由uri地址, loadbalancer://服务名称
+          uri: lb://msc-alibaba-consumer
+          predicates:
+            # 拦截所有提供者的请求到提供者集群服务
+            - Path=/consumer/shop/**

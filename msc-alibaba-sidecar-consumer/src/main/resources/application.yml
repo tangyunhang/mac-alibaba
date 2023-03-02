@@ -1,0 +1,21 @@
+server:
+  port: 8070
+# 设置Spring-Data-JPA
+#spring:
+#  application:
+#    # 当前服务的名称：注册到注册
+#    name: msc-alibaba-consumer
+#  main:
+#    allow-bean-definition-overriding: true
+# 配置日志
+logging:
+  pattern:
+    console: level-%level %t%msg%n
+  level:
+    root: info
+    org.hibernate: info
+#    org.hibernate.type.descriptor.sql.BasicBinder: trace
+#    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.abc: debug
+user:
+  name: "青衣醉"

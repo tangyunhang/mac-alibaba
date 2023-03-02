@@ -1,0 +1,17 @@
+server:
+  port: 9001
+spring:
+  application:
+    # 当前服务的名称：注册到注册
+    name: msc-alibaba-getway-api
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 121.43.114.196:8845
+    gateway:
+      discovery:
+        locator:
+          # 配置开启与DiscoveryClient整合
+          enabled: true
+

@@ -1,0 +1,41 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: msc-alibaba-consumer #msc-alibaba-sidecar
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 121.43.114.196:8845
+    gateway:
+      discovery:
+        locator:
+          # 配置开启与DiscoveryClient整合
+          enabled: true
+      routes:
+      # 动态路由配置：路由id
+        - id: ribbon_route
+          # 路由uri地址, loadbalancer://服务名称
+          uri: lb://msc-alibaba-producer
+          predicates:
+            # 拦截所有提供者的请求到提供者集群服务
+            - Path=/provider/shop/**
+# 配置日志
+logging:
+  pattern:
+    console: level-%level %t%msg%n
+  level:
+    root: info
+    org.hibernate: info
+    com.abc: debug
+sidecar:
+  # 异构微服务的IP
+  ip: localhost
+  # 异构微服务的端口
+  port: 8070
+  # 异构微服务的健康检查URL
+  health-check-url: http://localhost:8070/health.json
+management:
+endpoint:
+  health:
+    show-details: always
