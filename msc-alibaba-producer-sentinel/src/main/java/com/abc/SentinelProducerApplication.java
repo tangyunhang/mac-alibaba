@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableAsync
 @SpringBootApplication
-public class ProducerApplication {
+public class SentinelProducerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run (ProducerApplication.class, args);
+        SpringApplication.run (SentinelProducerApplication.class, args);
     }
 
 }
