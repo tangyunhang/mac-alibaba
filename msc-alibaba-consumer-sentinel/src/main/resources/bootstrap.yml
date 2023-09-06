@@ -1,0 +1,27 @@
+server:
+  port: 8090
+# 配置配置中心的服务地址
+spring:
+  application:
+    # 配置应用名称
+    name: msc-alibaba-consumer
+  cloud:
+    nacos:
+      # 配置中心相关配置
+      config:
+        # 配置中心地址
+        server-addr: 121.43.114.196:8845,121.43.114.196:8846,121.43.114.196:8847
+        # 配置文件扩展名称
+        file-extension: yml
+        #配置group
+        group: ALIBABA_GROUP
+#  profiles: # 配置文件只有获取，看不到！！！安全性也有保证
+#    active: prod
+    sentinel:
+      # 该配置能够使dashboard主动发现该应用
+      eager: true
+      transport:
+        # 配置管控台的主机地址+端口
+        dashboard: localhost:8888
+        # 传输配置数据端口
+        port: 8719
