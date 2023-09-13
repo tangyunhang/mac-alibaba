@@ -11,7 +11,7 @@
     <groupId>com.abc</groupId>
     <artifactId>msc-alibaba-consumer-sentinel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>msc-alibaba-consumer</name>
+    <name>msc-alibaba-consumer-sentinel</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
